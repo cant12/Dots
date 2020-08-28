@@ -5,4 +5,4 @@ try to win!
 # How to Play
 - clone
 - make
-- ./dots
+- ./dots or dots.exe(for windows)

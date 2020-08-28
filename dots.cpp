@@ -2,6 +2,7 @@
 #include<iostream>
 #include<algorithm>
 #include<random>
+#include<ctime>
 using namespace std;
 
 struct result
@@ -10,10 +11,10 @@ struct result
   float payoff;
 };
 
-int randomfunc(int j) 
-{ 
-    return rand() % j; 
-} 
+int randomfunc(int j)
+{
+    return rand() % j;
+}
 
 class board
 {
@@ -99,7 +100,7 @@ public:
           t = "";
           t += i+48;
           t += " ";
-          t += j+48; 
+          t += j+48;
           t += " ";
           t += i+48;
           t += " ";
@@ -110,7 +111,7 @@ public:
             t = "";
             t += i+48;
             t += " ";
-            t += j+49; 
+            t += j+49;
             t += " ";
             t += i+48;
             t += " ";
@@ -129,7 +130,7 @@ public:
           t = "";
           t += i+48;
           t += " ";
-          t += j+48; 
+          t += j+48;
           t += " ";
           t += i+49;
           t += " ";
@@ -140,7 +141,7 @@ public:
             t = "";
             t += i+49;
             t += " ";
-            t += j+48; 
+            t += j+48;
             t += " ";
             t += i+48;
             t += " ";
@@ -218,7 +219,7 @@ public:
           b_homes++;
           point[x][y] = -1;
         }
-        comp = 1; 
+        comp = 1;
       }
     }
     else
@@ -304,7 +305,7 @@ public:
         else
           cout << " " << endl;
       }
-    } 
+    }
   }
 
   float utility()
@@ -346,7 +347,7 @@ public:
         if((i==0 || actions[i]!=actions[0]) && state.make_move(actions[i]))
         {
           result x;
-          if(actions[i]=="PASS") 
+          if(actions[i]=="PASS")
             x = state.best_move(look,temp.payoff,beta,t-(float)(clock()-starttime)/CLOCKS_PER_SEC,0,killer,i==0 && kill);
           else
             x = state.best_move(look-1,temp.payoff,beta,t-(float)(clock()-starttime)/CLOCKS_PER_SEC,0,killer,i==0 && kill);
@@ -386,7 +387,7 @@ public:
         {
           result x;
           if(actions[i]=="PASS")
-            x = state.best_move(look,alpha,temp.payoff,t-(float)(clock()-starttime)/CLOCKS_PER_SEC,0,killer,i==0 && kill);  
+            x = state.best_move(look,alpha,temp.payoff,t-(float)(clock()-starttime)/CLOCKS_PER_SEC,0,killer,i==0 && kill);
           else
             x = state.best_move(look-1,alpha,temp.payoff,t-(float)(clock()-starttime)/CLOCKS_PER_SEC,0,killer,i==0 && kill);
           if(temp.payoff > x.payoff)
@@ -520,11 +521,11 @@ int main()
   //   if(game->make_move(move))
   //   {
   //     cout << endl;
-  //     game->print_board(); 
+  //     game->print_board();
   //     cout << endl;
   //   }
   //   else
-  //     cout << "invalid move!" << endl; 
+  //     cout << "invalid move!" << endl;
   // }
 
   for(;;)
@@ -606,12 +607,3 @@ int main()
   }
   return 0;
 }
-
-
-
-
-
-
-
-
-
